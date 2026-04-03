@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 
 
-st.title("Simple LLM Application")
+st.title("Simple LLM Chat Application")
 
 with st.sidebar:
     st.title("Settings")
