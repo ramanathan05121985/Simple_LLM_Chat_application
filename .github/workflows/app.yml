@@ -1,26 +1,22 @@
-name: Push to Hugging Face
-
+name: Sync to Hugging Face hub
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+
+  # to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
-  sync:
+  sync-to-hub:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-
-      - name: Add Hugging Face remote
-        run: |
-          git remote add hf https://RamanathanB:${{ secrets.HF_TOKEN }}@huggingface.co/spaces/RamanathanB/Simple_LLM_Chat_Application
-
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          lfs: true
       - name: Pull from Hugging Face (IMPORTANT)
-        run: |
-          git pull hf main --rebase
-
-      - name: Push to Hugging Face
-        run: |
-          git push hf main
+        run: git pull https://RamanathanB:$HF_TOKEN@huggingface.co/spaces/RamanathanB/Simple_LLM_Chat_Application main
+      - name: Push to hub
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: git push https://RamanathanB:$HF_TOKEN@huggingface.co/spaces/RamanathanB/Simple_LLM_Chat_Application main
