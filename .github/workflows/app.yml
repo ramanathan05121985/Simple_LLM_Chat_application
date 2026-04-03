@@ -7,8 +7,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  sync-to-hub:
-    runs-on: ubuntu-latest
+  #sync-to-hub:
+    #runs-on: ubuntu-latest
   checkout-hf:
     runs-on: ubuntu-latest
     steps:
