@@ -2,15 +2,12 @@ import streamlit as st
 from langchain_openai import ChatOpenAI
 import os
 from dotenv import load_dotenv
-
-
 st.title("Simple LLM Application")
-
 with st.sidebar:
     st.title("Settings")
     api_key  = st.text_input("Enter the API Key:",type="password")
 
-    #another method
+    ##another method
     #api_key =st.secrets["OPENAI_API_KEY"]
     
 if api_key:
