@@ -7,7 +7,7 @@ with st.sidebar:
     st.title("Settings")
     api_key  = st.text_input("Enter the API Key:",type="password")
 
-    #####another method
+    #another way
     #api_key =st.secrets["OPENAI_API_KEY"]
     
 if api_key:
