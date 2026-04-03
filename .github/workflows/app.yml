@@ -13,11 +13,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Set up Git
-        run: |
-          git config --global user.email "you@example.com"
-          git config --global user.name "github-actions"
-
       - name: Add Hugging Face remote
         run: |
           git remote add hf https://RamanathanB:${{ secrets.HF_TOKEN }}@huggingface.co/spaces/RamanathanB/Simple_LLM_Chat_Application
