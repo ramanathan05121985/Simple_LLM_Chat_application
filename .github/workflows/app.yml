@@ -9,13 +9,13 @@ on:
 jobs:
   sync-to-hub:
     runs-on: ubuntu-latest
+  checkout-hf:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
           lfs: true
-      - name: Pull from Hugging Face (IMPORTANT)
-        run: git pull https://RamanathanB:$HF_TOKEN@huggingface.co/spaces/RamanathanB/Simple_LLM_Chat_Application main
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
